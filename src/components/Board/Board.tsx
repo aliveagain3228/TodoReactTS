@@ -1,4 +1,5 @@
 import { useTasks } from '../../hooks/UseTasks'
+import PageLoader from "../PageLoader/PageLoader.tsx";
 import { COLUMNS } from "../../types";
 import Column from "../Column/Column"
 import Header from "../Header/Header"
@@ -8,6 +9,7 @@ export default function Board() {
 
     return (
         <div className="min-h-screen flex flex-col">
+            <PageLoader />git status
             <Header tasks={tasks} />
 
             <div className="p-8 flex-1">
