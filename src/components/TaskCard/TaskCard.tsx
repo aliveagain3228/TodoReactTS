@@ -1,4 +1,5 @@
 import type { Task, Status } from "../../types"
+import { motion, AnimatePresence } from "framer-motion";
 
 interface TaskCardProps {
     task: Task
@@ -14,7 +15,15 @@ export default function TaskCard({ task, onDelete, onMove } : TaskCardProps) {
     const canMoveRight = currentIndex < STATUS_ORDER.length - 1
 
     return (
-        <div className="bg-slate-700 rounded-lg p-3 flex flex-col gap-2">
+        <motion.div
+            className="bg-slate-700 rounded-lg p-3 flex flex-col gap-2"
+            initial={{ opacity: 0, scale: 0.95 }}
+            animate={{ opacity: 1, scale: 1}}
+            exit={{ opacity: 0, scale: 0.95 }}
+            transition={{ duration: 0.2 }}
+            layout
+        >
+
             <div className="flex justify-between items-start">
                 <h3 className="font-medium text-sm flex-1">{task.title}</h3>
                 <button
@@ -46,6 +55,6 @@ export default function TaskCard({ task, onDelete, onMove } : TaskCardProps) {
                     Вперёд →
                 </button>
             </div>
-        </div>
+        </motion.div>
     )
 }

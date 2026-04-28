@@ -9,11 +9,11 @@ export default function Board() {
 
     return (
         <div className="min-h-screen flex flex-col">
-            <PageLoader />git status
+            <PageLoader />
             <Header tasks={tasks} />
 
             <div className="p-8 flex-1">
-                <div className="grid grid-cols-3 gap-6">
+                <div className="grid grid-cols-3 gap-6 items-start">
                     {COLUMNS.map(column => (
                         <Column
                             key={column.id}

@@ -43,43 +43,41 @@ export default function Header({ tasks }: HeaderProps) {
                         <p className="text-slate-400 text-xs">Управление задачами</p>
                     </div>
                 </div>
-            </div>
+                <div className="flex items-center gap-6">
+                    <div className="flex items-center gap-2">
+                        <MdOutlinePendingActions className="text-yellow-400 text-lg" />
+                        <div className="text-center">
+                            <p className="text-white font-bold text-lg leading-none">{totalTasks}</p>
+                            <p className="text-slate-400 text-xs">Всего</p>
+                        </div>
+                    </div>
 
-            <div className="flex items-center gap-6">
-                <div className="flex items-center gap-2">
-                    <MdOutlinePendingActions className="text-yellow-400 text-lg" />
-                    <div className="text-center">
-                        <p className="text-white font-bold text-lg leading-none">{totalTasks}</p>
-                        <p className="text-slate-400 text-xs">Всего</p>
+                    <div className="w-px h-8 bg-slate-700" />
+                    <div className="flex items-center gap-2">
+                        <BsCheckCircle className="text-green-400 text-lg" />
+                        <div className="text-center">
+                            <p className="text-white font-bold text-lg leading-none">{doneTasks}</p>
+                            <p className="text-slate-400 text-xs">Готово</p>
+                        </div>
+                    </div>
+
+                    <div className="w-px h-8 bg-slate-700" />
+
+                    <div className="flex items-center gap-2">
+                        <div className="text-center">
+                            <p className="text-white font-bold text-lg leading-none">
+                                {progress}%
+                            </p>
+                            <p className="text-slate-400 text-xs">Прогресс</p>
+                        </div>
                     </div>
                 </div>
-
-                <div className="w-px h-8 bg-slate-700" />
-                <div className="flex items-center gap-2">
-                    <BsCheckCircle className="text-green-400 text-lg" />
-                    <div className="text-center">
-                        <p className="text-white font-bold text-lg leading-none">{doneTasks}</p>
-                        <p className="text-slate-400 text-xs">Готово</p>
+                <div className="max-w-7xl mx-auto mt-3">
+                    <div className="h-1 bg-slate-700 rounded-full overflow-hidden">
+                        <div className="h-full bg-gradient-to-r from-blue-500 to-green-400 rounded-full transition-all duration-500"
+                             style={{ width: `${progress}%` }}
+                        />
                     </div>
-                </div>
-
-                <div className="w-px h-8 bg-slate-700" />
-
-                <div className="flex items-center gap-2">
-                    <div className="text-center">
-                        <p className="text-white font-bold text-lg leading-none">
-                            {progress}%
-                        </p>
-                        <p className="text-slate-400 text-xs">Прогресс</p>
-                    </div>
-                </div>
-            </div>
-
-            <div className="max-w-7xl max-auto mt-3">
-                <div className="h-1 bg-slate-700 rounded-full overflow-hidden">
-                    <div className="h-full bg-gradient-to-r from-blue-500 to green-400 rounded-full transition-all duration-500"
-                         style={{ width: `${progress}%` }}
-                    />
                 </div>
             </div>
         </header>
