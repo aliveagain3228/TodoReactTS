@@ -28,6 +28,7 @@ export default function Column({ column, tasks, onAddTask, onDeleteTask, onMoveT
             </div>
 
             <div className="flex flex-col gap-2 flex-1">
+                <AnimatePresence>
                 {tasks.map(task => (
                     <TaskCard
                         key={task.id}
@@ -36,6 +37,7 @@ export default function Column({ column, tasks, onAddTask, onDeleteTask, onMoveT
                         onMove={onMoveTask}
                     />
                 ))}
+                </AnimatePresence>
 
                 {tasks.length === 0 && (
                     <p className="text-slate-500 text-sm text-center py-4">

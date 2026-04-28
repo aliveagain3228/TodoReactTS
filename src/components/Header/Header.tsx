@@ -72,12 +72,12 @@ export default function Header({ tasks }: HeaderProps) {
                         </div>
                     </div>
                 </div>
-                <div className="max-w-7xl mx-auto mt-3">
-                    <div className="h-1 bg-slate-700 rounded-full overflow-hidden">
-                        <div className="h-full bg-gradient-to-r from-blue-500 to-green-400 rounded-full transition-all duration-500"
-                             style={{ width: `${progress}%` }}
-                        />
-                    </div>
+            </div>
+            <div className="max-w-7xl mx-auto mt-3">
+                <div className="h-1 bg-slate-700 rounded-full overflow-hidden">
+                    <div className="h-full bg-gradient-to-r from-blue-500 to-green-400 rounded-full transition-all duration-500"
+                         style={{ width: `${progress}%` }}
+                    />
                 </div>
             </div>
         </header>
