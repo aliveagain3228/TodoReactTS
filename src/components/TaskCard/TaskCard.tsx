@@ -1,5 +1,7 @@
 import type { Task, Status } from "../../types"
 import { motion } from "framer-motion";
+import { useDraggable } from "@dnd-kit/core";
+import { CSS } from '@dnd-kit/utilities'
 
 interface TaskCardProps {
     task: Task
@@ -10,13 +12,28 @@ interface TaskCardProps {
 const STATUS_ORDER: Status[] = ['todo', 'inProgress', 'done']
 
 export default function TaskCard({ task, onDelete, onMove } : TaskCardProps) {
+
+    const { attributes, listeners, setNodeRef, transform, isDragging } = useDraggable({
+        id: task.id
+    })
+
+    const style = {
+        transform: CSS.Translate.toString(transform),
+        opacity: isDragging ? 0.5 : 1,
+        zIndex: isDragging ? 1000 : 'auto',
+    }
+
     const currentIndex = STATUS_ORDER.indexOf(task.status)
     const canMoveLeft = currentIndex > 0
     const canMoveRight = currentIndex < STATUS_ORDER.length - 1
 
     return (
         <motion.div
-            className="bg-slate-700 rounded-lg p-3 flex flex-col gap-2"
+            ref={setNodeRef}
+            style={style}
+            {...attributes}
+            {...listeners}
+            className="bg-slate-700 rounded-lg p-3 flex flex-col gap-2 cursor-grab active:cursor-grabbing"
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1}}
             exit={{ opacity: 0, scale: 0.95 }}

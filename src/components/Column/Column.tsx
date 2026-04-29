@@ -1,5 +1,6 @@
 import type { Task, Column as ColumnType, Status } from "../../types";
 import { motion, AnimatePresence } from "framer-motion";
+import { useDroppable } from "@dnd-kit/core";
 import TaskCard from "../TaskCard/TaskCard"
 import AddTaskForm from "../AddTaskForm/AddTaskForm"
 
@@ -13,9 +14,15 @@ interface ColumnProps {
 
 export default function Column({ column, tasks, onAddTask, onDeleteTask, onMoveTask } : ColumnProps) {
 
+    const { setNodeRef, isOver } = useDroppable({ id: column.id })
+
     return (
         <motion.div
-            className="bg-slate-800 rounded-xl p-4 flex flex-col gap-3"
+            ref={setNodeRef}
+            className={`bg-slate-800 rounded-xl p-4 flex flex-col gap-3
+            transition-colors duration-200
+            ${isOver ? 'bg-slate-700 ring-2 ring-blue-500' : ''}
+            `}
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.4, delay: 0.1 }}
