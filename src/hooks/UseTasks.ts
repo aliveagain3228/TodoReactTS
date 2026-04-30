@@ -34,5 +34,9 @@ const moveTask = (id: number, newStatus: Status) => {
     ))
 }
 
-return { tasks, addTask, deleteTask, moveTask }
+const editTask = (id: number, newTitle: string) => {
+        setTasks(prev => prev.map(t => t.id === id ? { ...t, title: newTitle } : t ))
+    }
+
+return { tasks, addTask, deleteTask, moveTask, editTask }
 }

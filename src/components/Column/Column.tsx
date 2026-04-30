@@ -10,9 +10,10 @@ interface ColumnProps {
     onAddTask: ( title: string, description?: string, status?: Status) => void
     onDeleteTask: ( id: number ) => void
     onMoveTask: (id: number, status: Status) => void
+    onEditTask: ( id: number, newTitle: string ) => void
 }
 
-export default function Column({ column, tasks, onAddTask, onDeleteTask, onMoveTask } : ColumnProps) {
+export default function Column({ column, tasks, onAddTask, onDeleteTask, onMoveTask, onEditTask } : ColumnProps) {
 
     const { setNodeRef, isOver } = useDroppable({ id: column.id })
 
@@ -42,6 +43,7 @@ export default function Column({ column, tasks, onAddTask, onDeleteTask, onMoveT
                         task={task}
                         onDelete={onDeleteTask}
                         onMove={onMoveTask}
+                        onEdit={onEditTask}
                     />
                 ))}
                 </AnimatePresence>

@@ -11,8 +11,19 @@ import Column from "../Column/Column"
 import Header from "../Header/Header"
 
 export default function Board() {
-    const { tasks, addTask, deleteTask, moveTask } = useTasks()
+    const { tasks, addTask, deleteTask, moveTask, editTask } = useTasks()
 
+    const [sortOrder, setSortOrder] = useState<'newest' | 'oldest'>('newest')
+    const [search, setSearch ] = useState('')
+    const filteredTasks = (columnId: Status) =>
+        tasks
+            .filter(t => t.status === columnId)
+            .filter(t => t.title.toLowerCase().includes(search.toLowerCase()))
+            .sort((a, b) =>
+                sortOrder === 'newest'
+                ? b.createdAt - a.createdAt
+                    : a.createdAt - b.createdAt
+            )
     const [activeTask, setActiveTask] = useState<Task | null>(null)
 
     const handleDragStart = (event: DragEndEvent) => {
@@ -33,7 +44,13 @@ export default function Board() {
     return (
         <div className="min-h-screen flex flex-col">
             <PageLoader />
-            <Header tasks={tasks} />
+            <Header
+                search={search}
+                sortOrder={sortOrder}
+                onSortChange={() => setSortOrder(prev => prev === 'newest' ? 'oldest' : 'newest')}
+                onSearchChange={setSearch}
+                tasks={tasks}
+            />
 
             <div className="p-8 flex-1">
                 <DndContext
@@ -45,10 +62,11 @@ export default function Board() {
                         <Column
                             key={column.id}
                             column={column}
-                            tasks={tasks.filter(t => t.status === column.id)}
+                            tasks={filteredTasks(column.id)}
                             onAddTask={addTask}
                             onDeleteTask={deleteTask}
                             onMoveTask={moveTask}
+                            onEditTask={editTask}
                         />
                     ))}
                 </div>
@@ -59,6 +77,7 @@ export default function Board() {
                             task={activeTask}
                             onDelete={() => {}}
                             onMove={() => {}}
+                            onEdit={() => {}}
                             />
                         ) : null}
                     </DragOverlay>

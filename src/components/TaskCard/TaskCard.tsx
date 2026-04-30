@@ -1,18 +1,34 @@
 import type { Task, Status } from "../../types"
 import { motion } from "framer-motion";
 import { useDraggable } from "@dnd-kit/core";
+import { useState } from "react";
 import { CSS } from '@dnd-kit/utilities'
 
 interface TaskCardProps {
     task: Task
     onDelete: (id: number) => void
     onMove: (id: number, status: Status) => void
+    onEdit: (id: number, newTitle: string) => void
 }
 
 const STATUS_ORDER: Status[] = ['todo', 'inProgress', 'done']
 
-export default function TaskCard({ task, onDelete, onMove } : TaskCardProps) {
+export default function TaskCard({ task, onDelete, onMove, onEdit } : TaskCardProps) {
 
+    const [isEditing , setIsEditing] = useState(false)
+    const [editValue, setEditValue] = useState(task.title)
+
+    const handleEditSave = () => {
+        if (editValue.trim()) {
+            onEdit(task.id, editValue.trim())
+        }
+        setIsEditing(false)
+    }
+
+    const formattedDate = new Date(task.createdAt).toLocaleDateString('ru-RU', {
+        day: "2-digit",
+        month: 'short',
+    })
     const { attributes, listeners, setNodeRef, transform, isDragging } = useDraggable({
         id: task.id
     })
@@ -44,12 +60,34 @@ export default function TaskCard({ task, onDelete, onMove } : TaskCardProps) {
         >
 
             <div className="flex justify-between items-start">
-                <h3
-                    {...listeners}
-                    className="font-medium text-sm flex-1 cursor-grab"
-                >
-                    {task.title}
-                </h3>
+                {isEditing ? (
+                    <input
+                        value={editValue}
+                        onChange={(e) => setEditValue(e.target.value)}
+                        onBlur={handleEditSave}
+                        onKeyDown={(e) => {
+                            if (e.key === 'Enter') handleEditSave()
+                            if (e.key === 'Escape') {
+                                setEditValue(task.title)
+                                setIsEditing(false)
+                                }
+                        }}
+                        autoFocus
+                        className="bg-slate-600 rounded px-2 py-0.5 text-sm flex-1 outline-none focus:ring-blue-500"
+                    />
+                ) : (
+                    <h3
+                        {...listeners}
+                        onDoubleClick={() => {
+                            setIsEditing(true)
+                            setEditValue(task.title)
+                        }}
+                        className="font-medium text-sm flex-1 cursor-grab"
+                    >
+                        {task.title}
+                    </h3>
+                )}
+
                 <button
                     onClick={() => onDelete(task.id)}
                     className="text-slate-400 hover:text-red-400 ml-2 text-xs transition-colors"
@@ -79,6 +117,7 @@ export default function TaskCard({ task, onDelete, onMove } : TaskCardProps) {
                     Вперёд →
                 </button>
             </div>
+            <p className="text-slate-500 text-xs mt-1">{formattedDate}</p>
         </motion.div>
         </div>
     )
