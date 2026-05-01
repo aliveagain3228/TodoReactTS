@@ -12,7 +12,7 @@ interface HeaderProps {
     tasks: Task[]
 }
 
-export default function Header({ tasks, search, onSearchChange, sortOrder, onSortChange }: HeaderProps) {
+export default function Header({ tasks, search, onSearchChange }: HeaderProps) {
     const [isScrolled, setIsScrolled] = useState(false)
 
 
@@ -48,6 +48,23 @@ export default function Header({ tasks, search, onSearchChange, sortOrder, onSor
                     </div>
                 </div>
 
+                <div className="relative">
+                    <input
+                        type="text"
+                        value={search}
+                        onChange={(e) => onSearchChange(e.target.value)}
+                        placeholder="Поиск задачи..."
+                        className="bg-slate-800 border border-slate-700 rounded-full px-4 py-1.5 text-sm text-white placeholder-slate-500 outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 w-64"
+                    />
+                    {search && (
+                        <button
+                            onClick={() => onSearchChange('')}
+                            className="absolute right-3 top-1/2 -translate-y-1/2 text-slate-500 hover:text-white text-xs"
+                        >
+                            ✕
+                        </button>
+                    )}
+                </div>
 
                 <div className="flex items-center gap-6">
                     <div className="flex items-center gap-2">
@@ -86,30 +103,6 @@ export default function Header({ tasks, search, onSearchChange, sortOrder, onSor
                     />
                 </div>
             </div>
-            <div className="relative">
-                <input
-                    type="text"
-                    value={search}
-                    onChange={(e) => onSearchChange(e.target.value)}
-                    placeholder="Поиск задачи..."
-                    className="bg-slate-800 border border-slate-700 rounded-lg px-4 py-1.5 text-sm text-white placeholder-slate-500 outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 w-48"
-                />
-                {search && (
-                    <button
-                        onClick={() => onSearchChange('')}
-                        className="absolute right-3 top-1/2 -translate-y-1/2 text-slate-500 hover:text-white text-xs"
-                    >
-                        ✕
-                    </button>
-                )}
-            </div>
-
-            <button
-                onClick={onSortChange}
-                className="text-slate-400 hover:text-white text-xs border border-slate-700 rounded px-3 py-1.5 transition-colors whitespace-nowrap"
-            >
-                {sortOrder === 'newest' ? '↓ Новые' : '↑ Старые'}
-            </button>
         </header>
     )
 }

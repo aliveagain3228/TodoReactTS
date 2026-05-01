@@ -19,11 +19,6 @@ export default function Board() {
         tasks
             .filter(t => t.status === columnId)
             .filter(t => t.title.toLowerCase().includes(search.toLowerCase()))
-            .sort((a, b) =>
-                sortOrder === 'newest'
-                ? b.createdAt - a.createdAt
-                    : a.createdAt - b.createdAt
-            )
     const [activeTask, setActiveTask] = useState<Task | null>(null)
 
     const handleDragStart = (event: DragEndEvent) => {
@@ -60,6 +55,7 @@ export default function Board() {
                 <div className="grid grid-cols-3 gap-6 items-start">
                     {COLUMNS.map(column => (
                         <Column
+                            globalSort={sortOrder}
                             key={column.id}
                             column={column}
                             tasks={filteredTasks(column.id)}

@@ -1,4 +1,4 @@
-import type { Task, Status } from '../types'
+import type {Task, Status, Priority} from '../types'
 import {useEffect, useState} from "react";
 
 const STORAGE_KEY = 'kanban-tasks'
@@ -13,12 +13,13 @@ useEffect(() => {
     localStorage.setItem(STORAGE_KEY, JSON.stringify(tasks))
 }, [tasks])
 
-const addTask = (title: string, description?: string, status: Status = 'todo') => {
+const addTask = (title: string, description?: string, status: Status = 'todo', priority: Priority = 'medium') => {
     const newTask: Task = {
         id: Date.now(),
         title,
         description,
         status,
+        priority,
         createdAt: Date.now()
     }
     setTasks(prev => [...prev, newTask])

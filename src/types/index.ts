@@ -5,8 +5,15 @@ export interface Task {
     title: string
     description?: string
     status: Status
+    priority: Priority
     createdAt: number
 }
+
+export type Priority = 'low' | 'medium' | 'high'
+
+
+
+export type SortOrder = 'newest' | 'oldest'
 
 export interface Column {
     id: Status
