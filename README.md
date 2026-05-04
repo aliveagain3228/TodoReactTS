@@ -1,75 +1,40 @@
-# React + TypeScript + Vite
+# Kanban Board App 📋
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A professional task management application built with **React** and **TypeScript**. This project demonstrates the implementation of a modern, organized, and type-safe UI for managing workflows through a classic Kanban system[cite: 5, 8].
 
-Currently, two official plugins are available:
+## 🚀 Live Demo
+[View the Live Site](https://aliveagain3228.github.io/TodoReactTS/)[cite: 5, 8]
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## ✨ Key Features
+*   **Column Management**: Organize tasks into different stages of completion (e.g., To Do, In Progress, Done).
+*   **Type Safety**: Built with **TypeScript** to ensure robust code quality and prevent runtime errors[cite: 8].
+*   **Responsive Interface**: Fully accessible and functional across various screen sizes using **Tailwind CSS**[cite: 8].
+*   **Performance**: Developed using **Vite** for lightning-fast builds and optimized delivery[cite: 5].
 
-## React Compiler
+## 🛠️ Tech Stack
+*   **Core**: React 18, TypeScript[cite: 8]
+*   **Styling**: Tailwind CSS[cite: 8]
+*   **Icons**: React Icons (Silicon icons)[cite: 8]
+*   **Build Tool**: Vite[cite: 5]
+*   **Deployment**: GitHub Pages[cite: 5]
 
-The React Compiler is enabled on this template. See [this documentation](https://react.dev/learn/react-compiler) for more information.
+## 📁 Project Structure
+The project follows a modular component-based architecture for better maintainability:
+*   `src/components`: Reusable UI elements for columns and tasks.
+*   `src/constants`: Configuration files and static data[cite: 8].
+*   `src/styles`: Global styling configurations[cite: 7].
 
-Note: This will impact Vite dev & build performances.
+## ⚙️ Installation & Setup
 
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
-
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
-
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
-
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+1.  **Clone the repository**:
+    
+```bash
+    git clone [https://github.com/aliveagain3228/TodoReactTS.git](https://github.com/aliveagain3228/TodoReactTS.git)
+    ```
+2.  **Install dependencies**:
+    ```bash
+    npm install
+    ```
+3.  **Run in development mode**:
+    ```bash
+    npm run dev
