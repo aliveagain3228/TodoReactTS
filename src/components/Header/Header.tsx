@@ -44,7 +44,7 @@ export default function Header({ tasks, search, onSearchChange }: HeaderProps) {
                     <GiNotebook className="text-blue-400 text-2xl" />
                     <div>
                         <h1 className="text-xl font-bold text-white">Kanban Board</h1>
-                        <p className="text-slate-400 text-xs">Управление задачами</p>
+                        <p className="text-slate-400 text-xs">Task management</p>
                     </div>
                 </div>
 
@@ -53,7 +53,7 @@ export default function Header({ tasks, search, onSearchChange }: HeaderProps) {
                         type="text"
                         value={search}
                         onChange={(e) => onSearchChange(e.target.value)}
-                        placeholder="Поиск задачи..."
+                        placeholder="Searching for task..."
                         className="bg-slate-800 border border-slate-700 rounded-full px-4 py-1.5 text-sm text-white placeholder-slate-500 outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 w-64"
                     />
                     {search && (
@@ -71,7 +71,7 @@ export default function Header({ tasks, search, onSearchChange }: HeaderProps) {
                         <MdOutlinePendingActions className="text-yellow-400 text-lg" />
                         <div className="text-center">
                             <p className="text-white font-bold text-lg leading-none">{totalTasks}</p>
-                            <p className="text-slate-400 text-xs">Всего</p>
+                            <p className="text-slate-400 text-xs">Total</p>
                         </div>
                     </div>
 
@@ -80,7 +80,7 @@ export default function Header({ tasks, search, onSearchChange }: HeaderProps) {
                         <BsCheckCircle className="text-green-400 text-lg" />
                         <div className="text-center">
                             <p className="text-white font-bold text-lg leading-none">{doneTasks}</p>
-                            <p className="text-slate-400 text-xs">Готово</p>
+                            <p className="text-slate-400 text-xs">Done</p>
                         </div>
                     </div>
 
@@ -91,7 +91,7 @@ export default function Header({ tasks, search, onSearchChange }: HeaderProps) {
                             <p className="text-white font-bold text-lg leading-none">
                                 {progress}%
                             </p>
-                            <p className="text-slate-400 text-xs">Прогресс</p>
+                            <p className="text-slate-400 text-xs">Progress</p>
                         </div>
                     </div>
                 </div>

@@ -4,10 +4,10 @@ export default function ContactFooter() {
     return (
         <footer className="mt-auto border-t border-slate-800 py-12 px-8 text-center">
             <p className="text-slate-500 text-xs uppercase tracking-widest mb-2">
-                Есть вопросы?
+                Any questions?
             </p>
             <h2 className="text-white text-2xl font-bold mb-6">
-                Свяжись со мной!
+                Contact me!
             </h2>
 
             <div className="flex justify-center gap-4">

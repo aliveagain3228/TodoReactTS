@@ -42,7 +42,7 @@ export default function PageLoader() {
                         animate={{ opacity: [0.4, 1, 0.4 ] }}
                         transition={{ duration: 1.2, repeat: Infinity }}
                     >
-                        Загрузка...
+                        Loading...
                     </motion.p>
                 </motion.div>
             )}

@@ -31,7 +31,7 @@ export default function TaskCard({ task, onDelete, onMove, onEdit } : TaskCardPr
         setIsEditing(false)
     }
 
-    const formattedDate = new Date(task.createdAt).toLocaleDateString('ru-RU', {
+    const formattedDate = new Date(task.createdAt).toLocaleDateString('en-US', {
         day: "2-digit",
         month: 'short',
     })

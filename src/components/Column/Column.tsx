@@ -56,9 +56,9 @@ export default function Column({ column, tasks, globalSort, onAddTask, onDeleteT
                         }
                         `}
                     >
-                        {localSort === 'newest' ? '↓ Новые'
-                            : localSort === 'oldest' ? '↑ Старые'
-                                : '↕ Авто'
+                        {localSort === 'newest' ? '↓ New'
+                            : localSort === 'oldest' ? '↑ Oldest'
+                                : '↕ Auto'
                         }
                     </button>
 
@@ -83,7 +83,7 @@ export default function Column({ column, tasks, globalSort, onAddTask, onDeleteT
 
                 {tasks.length === 0 && (
                     <p className="text-slate-500 text-sm text-center py-4">
-                        Нет задач
+                        No tasks
                     </p>
                 )}
             </div>

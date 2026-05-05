@@ -30,7 +30,7 @@ export default function AddTaskForm({ columnStatus, onAdd } : AddTaskFormProps) 
                 onClick={() => setIsOpen(true)}
                 className="w-full text-slate-400 hover:text-white hover:bg-slate-700 rounded-lg py-2 text-sm transition-colors text-left px-3"
             >
-                + Добавить заметку
+                + Add note
             </button>
         )
     }
@@ -41,7 +41,7 @@ export default function AddTaskForm({ columnStatus, onAdd } : AddTaskFormProps) 
                 type="text"
                 value={title}
                 onChange={(e) => setTitle(e.target.value)}
-                placeholder="Название задачи"
+                placeholder="Task title"
                 autoFocus
                 className="bg-slate-600 rounded-lg px-3 py-2 text-sm outline-none focus:ring-2 focus:ring-blue-500"
             />
@@ -49,7 +49,7 @@ export default function AddTaskForm({ columnStatus, onAdd } : AddTaskFormProps) 
                 type="text"
                 value={description}
                 onChange={(e) => setDescription(e.target.value)}
-                placeholder="Описание (необязательно)"
+                placeholder="Description (optional)"
                 className="bg-slate-600 rounded-lg px-3 py-2 text-sm outline-none focus:ring-2 focus:ring-blue-500"
             />
             <div className="flex gap-2">
@@ -67,14 +67,14 @@ export default function AddTaskForm({ columnStatus, onAdd } : AddTaskFormProps) 
                         }
                         `}
                     >
-                        {p === 'low' ? '🟢 Низкий' : p === 'medium' ? '🟡 Средний' : '🔴 Высокий'}
+                        {p === 'low' ? '🟢 low' : p === 'medium' ? '🟡 medium' : '🔴 high'}
                     </button>
                 ))}
                 <button
                     onClick={handleSubmit}
                     className="flex-1 bg-blue-600 hover:bg-blue-500 rounded-lg py-2 text-sm font-medium transition-colors"
                 >
-                    Добавить
+                    Add
                 </button>
 
                 <button
@@ -85,7 +85,7 @@ export default function AddTaskForm({ columnStatus, onAdd } : AddTaskFormProps) 
                     }}
                     className="flex-1 bg-slate-600 hover:bg-slate-500 rounded-lg py-2 text-sm transition-colors"
                 >
-                    Отмена
+                    Cancel
                 </button>
             </div>
         </div>

@@ -20,7 +20,7 @@ export interface Column {
     title: string
 }
 export const COLUMNS: Column[] = [
-    { id: 'todo', title: '📋 Надо сделать'},
-    { id: 'inProgress', title: '⚙️ В процессе'},
-    { id: 'done', title: '✅ Готово'}
+    { id: 'todo', title: '📋 Need to do'},
+    { id: 'inProgress', title: '⚙️ In progress'},
+    { id: 'done', title: '✅ Done'}
 ]
