@@ -17,28 +17,27 @@
 
 </div>
 
-## 📝 О проекте
+## 📝 About the Project
+A modern and minimalistic Kanban board for managing daily tasks. This project was built to practice TypeScript typing skills and create flexible user interfaces using Tailwind CSS.
 
-Современный и минималистичный Kanban-борд для управления ежедневными задачами. Проект создан для отработки навыков типизации в **TypeScript** и построения гибких интерфейсов на **Tailwind CSS**.
-
-### 📸 Скриншот приложения
+### 📸 App preview
 
 <img src="./public/preview.png" alt="Kanban Interface" width="800"/>
 
-## ✨ Функционал
+## ✨ Features
 
-- 🏗 **Колонки задач:** Разделение на "To Do", "In Progress" и "Done".
-- 🏷 **TypeScript Core:** Полная типизация пропсов, состояний и событий.
-- 🎨 **Modern UI:** Адаптивная верстка с использованием дизайн-системы Tailwind.
-- ⚡ **Vite Speed:** Мгновенная сборка и горячая перезагрузка (HMR).
+- 🏗 Task Columns: Organized into "To Do", "In Progress", and "Done"
+- 🏷 TypeScript Core: Full typing for props, state, and events
+- 🎨 Modern UI: Responsive layout utilizing the Tailwind design system.
+- ⚡ Vite Speed: Instant build and Hot Module Replacement (HMR).
 
-## 🚀 Установка
+## 🚀 Installation
 ```bash
-# Клонировать проект
+# Clone the project
 git clone [https://github.com/aliveagain3228/TodoReactTS.git](https://github.com/aliveagain3228/TodoReactTS.git)
 
-# Установить зависимости
+# Install dependencies
 npm install
 
-# Запустить локально
+# Run locally
 npm run dev
