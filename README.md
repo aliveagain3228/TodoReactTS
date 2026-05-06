@@ -1,18 +1,18 @@
 <div align="center">
-  
-  # 📋 Kanban Board (TodoReactTS)
+
+# 📋 Kanban Board (TodoReactTS)
 
   <p>
-    <a href="[https://aliveagain3228.github.io/TodoReactTS/](https://aliveagain3228.github.io/TodoReactTS/)" target="_blank">
-      <img src="[https://img.shields.io/badge/Live_Demo-Link-007ACC?style=for-the-badge&logo=githubpages&logoColor=white](https://img.shields.io/badge/Live_Demo-Link-007ACC?style=for-the-badge&logo=githubpages&logoColor=white)" alt="Live Demo" />
+    <a href="https://aliveagain3228.github.io/TodoReactTS/" target="_blank">
+      <img src="https://img.shields.io/badge/Live_Demo-Link-007ACC?style=for-the-badge&logo=githubpages&logoColor=white" alt="Live Demo" />
     </a>
   </p>
 
   <p>
-    <img src="[https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white](https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white)" alt="TypeScript" />
-    <img src="[https://img.shields.io/badge/React_18/19-20232A?style=for-the-badge&logo=react&logoColor=61DAFB](https://img.shields.io/badge/React_18/19-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)" alt="React" />
-    <img src="[https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white](https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)" alt="Tailwind" />
-    <img src="[https://img.shields.io/badge/Vite-B73BFE?style=for-the-badge&logo=vite&logoColor=FFD62E](https://img.shields.io/badge/Vite-B73BFE?style=for-the-badge&logo=vite&logoColor=FFD62E)" alt="Vite" />
+    <img src="https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white" alt="TypeScript" />
+    <img src="https://img.shields.io/badge/React_18/19-20232A?style=for-the-badge&logo=react&logoColor=61DAFB" alt="React" />
+    <img src="https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white" alt="Tailwind" />
+    <img src="https://img.shields.io/badge/Vite-B73BFE?style=for-the-badge&logo=vite&logoColor=FFD62E" alt="Vite" />
   </p>
 
 </div>
@@ -33,10 +33,9 @@
 - ⚡ **Vite Speed:** Мгновенная сборка и горячая перезагрузка (HMR).
 
 ## 🚀 Установка
-
 ```bash
 # Клонировать проект
-git clone https://github.com/aliveagain3228/TodoReactTS.git
+git clone [https://github.com/aliveagain3228/TodoReactTS.git](https://github.com/aliveagain3228/TodoReactTS.git)
 
 # Установить зависимости
 npm install
