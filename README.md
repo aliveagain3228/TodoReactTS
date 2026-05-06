@@ -1,40 +1,46 @@
-# Kanban Board App 📋
+```markdown
+<div align="center">
+  
+  # 📋 Kanban Board (TodoReactTS)
 
-A professional task management application built with **React** and **TypeScript**. This project demonstrates the implementation of a modern, organized, and type-safe UI for managing workflows through a classic Kanban system[cite: 5, 8].
+  <p>
+    <a href="[https://aliveagain3228.github.io/TodoReactTS/](https://aliveagain3228.github.io/TodoReactTS/)" target="_blank">
+      <img src="[https://img.shields.io/badge/Live_Demo-Link-007ACC?style=for-the-badge&logo=githubpages&logoColor=white](https://img.shields.io/badge/Live_Demo-Link-007ACC?style=for-the-badge&logo=githubpages&logoColor=white)" alt="Live Demo" />
+    </a>
+  </p>
 
-## 🚀 Live Demo
-[View the Live Site](https://aliveagain3228.github.io/TodoReactTS/)[cite: 5, 8]
+  <p>
+    <img src="[https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white](https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white)" alt="TypeScript" />
+    <img src="[https://img.shields.io/badge/React_18/19-20232A?style=for-the-badge&logo=react&logoColor=61DAFB](https://img.shields.io/badge/React_18/19-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)" alt="React" />
+    <img src="[https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white](https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)" alt="Tailwind" />
+    <img src="[https://img.shields.io/badge/Vite-B73BFE?style=for-the-badge&logo=vite&logoColor=FFD62E](https://img.shields.io/badge/Vite-B73BFE?style=for-the-badge&logo=vite&logoColor=FFD62E)" alt="Vite" />
+  </p>
 
-## ✨ Key Features
-*   **Column Management**: Organize tasks into different stages of completion (e.g., To Do, In Progress, Done).
-*   **Type Safety**: Built with **TypeScript** to ensure robust code quality and prevent runtime errors[cite: 8].
-*   **Responsive Interface**: Fully accessible and functional across various screen sizes using **Tailwind CSS**[cite: 8].
-*   **Performance**: Developed using **Vite** for lightning-fast builds and optimized delivery[cite: 5].
+</div>
 
-## 🛠️ Tech Stack
-*   **Core**: React 18, TypeScript[cite: 8]
-*   **Styling**: Tailwind CSS[cite: 8]
-*   **Icons**: React Icons (Silicon icons)[cite: 8]
-*   **Build Tool**: Vite[cite: 5]
-*   **Deployment**: GitHub Pages[cite: 5]
+## 📝 О проекте
 
-## 📁 Project Structure
-The project follows a modular component-based architecture for better maintainability:
-*   `src/components`: Reusable UI elements for columns and tasks.
-*   `src/constants`: Configuration files and static data[cite: 8].
-*   `src/styles`: Global styling configurations[cite: 7].
+Современный и минималистичный Kanban-борд для управления ежедневными задачами. Проект создан для отработки навыков типизации в **TypeScript** и построения гибких интерфейсов на **Tailwind CSS**.
 
-## ⚙️ Installation & Setup
+### 📸 Скриншот приложения
 
-1.  **Clone the repository**:
-    
+<img src="./public/preview.png" alt="Kanban Interface" width="800"/>
+
+## ✨ Функционал
+
+- 🏗 **Колонки задач:** Разделение на "To Do", "In Progress" и "Done".
+- 🏷 **TypeScript Core:** Полная типизация пропсов, состояний и событий.
+- 🎨 **Modern UI:** Адаптивная верстка с использованием дизайн-системы Tailwind.
+- ⚡ **Vite Speed:** Мгновенная сборка и горячая перезагрузка (HMR).
+
+## 🚀 Установка
+
 ```bash
-    git clone [https://github.com/aliveagain3228/TodoReactTS.git](https://github.com/aliveagain3228/TodoReactTS.git)
-    ```
-2.  **Install dependencies**:
-    ```bash
-    npm install
-    ```
-3.  **Run in development mode**:
-    ```bash
-    npm run dev
+# Клонировать проект
+git clone https://github.com/aliveagain3228/TodoReactTS.git
+
+# Установить зависимости
+npm install
+
+# Запустить локально
+npm run dev
