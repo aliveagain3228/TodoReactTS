@@ -15,20 +15,14 @@ interface HeaderProps {
 
 export default function Header({ tasks, search, onSearchChange }: HeaderProps) {
     const [isScrolled, setIsScrolled] = useState(false)
-    const { t, locale, toggleLocale } = useTranslation()
+    const [isLangOpen, setIsLangOpen] = useState(false)
+    const { t, locale, changeLocale } = useTranslation()
 
-    const FLAGS: Record<Locale, string> = {
-        ru: '🇷🇺',
-        en: '🇬🇧',
-        ua: '🇺🇦',
-    }
-
-    const LABELS: Record<Locale, string> = {
-        ru: 'RU',
-        en: 'EN',
-        ua: 'UA',
-    }
-
+    const LANGS: { locale: Locale; label: string; flag: string} [] = [
+        { locale: 'ru', label: 'Русский', flag: 'RU' },
+        { locale: 'en', label: 'English', flag: 'EN' },
+        { locale: 'ua', label: 'Українська', flag: 'UA' },
+    ]
 
     useEffect(() => {
         const handleScroll = () => {
@@ -56,16 +50,51 @@ export default function Header({ tasks, search, onSearchChange }: HeaderProps) {
 
                 <div className="flex items-center gap-3">
                     <GiNotebook className="text-blue-400 text-2xl" />
-                    <div>
+                    <div className="relative">
                         <h1 className="text-xl font-bold text-white">{t('board.title')}</h1>
                         <p className="text-slate-400 text-xs">{t('board.subtitle')}</p>
 
                         <button
-                            onClick={toggleLocale}
+                            onClick={() => setIsLangOpen(prev => !prev)}
                             className="flex items-center gap-1 text-slate-400 hover:text-white border border-slate-700 hover:border-slate-500 rounded-lg px-3 py-1 text-xs transition-colors"
                         >
-                            {FLAGS[locale]} {LABELS[locale]}
+                            <span className="font-bold text-xs">
+                                {LANGS.find(l => l.locale === locale)?.flag}
+                            </span>
+                            <span>▼</span>
                         </button>
+
+                        {isLangOpen && (
+                            <>
+                                <div
+                                    className="fixed inset-0 z-10"
+                                    onClick={() => setIsLangOpen(false)}
+                                />
+                                <div className="absolute left-0 top-full mt-1 z-20 bg-slate-800 border border-slate-700 rounded-lg overflow-hidden min-w-[140px]">
+                                    {LANGS.map(lang => (
+                                        <button
+                                            key={lang.locale}
+                                            onClick={() => {
+                                                changeLocale(lang.locale)
+                                                setIsLangOpen(false)
+                                            }}
+                                            className={`w-full flex items-center gap-2 px-3 py-2 text-xs text-left transition-colors
+                                            ${locale === lang.locale
+                                            ? 'bg-slate-700 text-white'
+                                                : 'text-slate-400 hover:bg-slate-700 hover:text-white'
+                                            }
+                                            `}
+                                        >
+                                            <span className="font-bold w-6">{lang.flag}</span>
+                                            <span>{lang.label}</span>
+                                            {locale === lang.locale && (
+                                                <span className="ml-auto text-blue-400">✓</span>
+                                            )}
+                                        </button>
+                                    ))}
+                                </div>
+                            </>
+                        )}
                     </div>
                 </div>
 

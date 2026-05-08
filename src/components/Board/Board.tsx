@@ -13,7 +13,6 @@ import Header from "../Header/Header"
 export default function Board() {
     const { tasks, addTask, deleteTask, moveTask, editTask } = useTasks()
 
-    const [sortOrder, setSortOrder] = useState<'newest' | 'oldest'>('newest')
     const [search, setSearch ] = useState('')
     const filteredTasks = (columnId: Status) =>
         tasks
@@ -53,7 +52,7 @@ export default function Board() {
                 <div className="grid grid-cols-3 gap-6 items-start">
                     {COLUMNS.map(column => (
                         <Column
-                            globalSort={sortOrder}
+                            globalSort="newest"
                             key={column.id}
                             column={column}
                             tasks={filteredTasks(column.id)}

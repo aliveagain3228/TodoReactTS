@@ -4,7 +4,7 @@ import type { Locale } from '../i18n'
 
 interface LocaleContextType {
     locale: Locale
-    toggleLocale: () => void
+    changeLocale: (locale: Locale) => void
     t: (path: string) => string
 }
 

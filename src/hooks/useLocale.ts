@@ -8,12 +8,9 @@ export function useLocale() {
         return saved ?? 'ru'
     })
 
-    const toggleLocale = () => {
-        const order: Locale[] = ['ru', 'en', 'ua']
-        const currentIndex = order.indexOf(locale)
-        const next = order[(currentIndex + 1) % order.length]
-        setLocale(next)
-        localStorage.setItem('locale', next)
+    const changeLocale = (newLocale: Locale) => {
+        setLocale(newLocale)
+        localStorage.setItem('locale', newLocale)
     }
 
     const t = (path: string) : string => {
@@ -30,5 +27,5 @@ export function useLocale() {
         return typeof result === 'string' ? result : path
     }
 
-    return { locale, toggleLocale, t }
+    return { locale, changeLocale, t }
 }
