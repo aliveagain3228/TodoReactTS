@@ -41,8 +41,6 @@ export default function Board() {
             <PageLoader />
             <Header
                 search={search}
-                sortOrder={sortOrder}
-                onSortChange={() => setSortOrder(prev => prev === 'newest' ? 'oldest' : 'newest')}
                 onSearchChange={setSearch}
                 tasks={tasks}
             />

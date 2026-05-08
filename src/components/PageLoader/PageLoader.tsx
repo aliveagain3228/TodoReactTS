@@ -1,7 +1,9 @@
 import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { useTranslation } from "../../context/LocaleContext.tsx";
 
 export default function PageLoader() {
+    const { t } = useTranslation()
     const [isVisible, setIsVisible] = useState(true)
 
     useEffect(() => {
@@ -42,7 +44,7 @@ export default function PageLoader() {
                         animate={{ opacity: [0.4, 1, 0.4 ] }}
                         transition={{ duration: 1.2, repeat: Infinity }}
                     >
-                        Loading...
+                        {t('loader.text')}
                     </motion.p>
                 </motion.div>
             )}

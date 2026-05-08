@@ -1,8 +1,10 @@
-import type {Task, Status, Priority} from "../../types"
+import type  {Task, Status, Priority } from "../../types"
+import type { Locale } from '../../i18n'
 import { motion } from "framer-motion";
 import { useDraggable } from "@dnd-kit/core";
 import { useState } from "react";
 import { CSS } from '@dnd-kit/utilities'
+import { useTranslation } from "../../context/LocaleContext.tsx";
 
 interface TaskCardProps {
     task: Task
@@ -17,10 +19,17 @@ const PRIORITY_STYLES: Record<Priority, string> = {
     high: 'bg-red-400',
 }
 
+const LOCALE_MAP: Record<Locale, string> = {
+    ru: 'ru-RU',
+    en: 'en-US',
+    ua: 'uk-UA'
+}
+
 const STATUS_ORDER: Status[] = ['todo', 'inProgress', 'done']
 
 export default function TaskCard({ task, onDelete, onMove, onEdit } : TaskCardProps) {
 
+    const { t, locale } = useTranslation()
     const [isEditing , setIsEditing] = useState(false)
     const [editValue, setEditValue] = useState(task.title)
 
@@ -31,7 +40,7 @@ export default function TaskCard({ task, onDelete, onMove, onEdit } : TaskCardPr
         setIsEditing(false)
     }
 
-    const formattedDate = new Date(task.createdAt).toLocaleDateString('en-US', {
+    const formattedDate = new Date(task.createdAt).toLocaleDateString(LOCALE_MAP[locale], {
         day: "2-digit",
         month: 'short',
     })
@@ -122,14 +131,14 @@ export default function TaskCard({ task, onDelete, onMove, onEdit } : TaskCardPr
                     disabled={!canMoveLeft}
                     className="flex-1 text-xs bg-slate-600 hover:bg-slate-500 disabled:cursor-not-allowed rounded px-2 py-1 transition-colors"
                 >
-                    ← Назад
+                    {t('task.moveBack')}
                 </button>
                 <button
                     onClick={() => onMove(task.id, STATUS_ORDER[currentIndex + 1])}
                     disabled={!canMoveRight}
                     className="flex-1 text-xs bg-slate-600 hover:bg-slate-500 disabled:opacity-30 disabled:cursor-not-allowed rounded px-2 py-1 transition-colors"
                 >
-                    Вперёд →
+                    {t('task.moveForward')}
                 </button>
             </div>
             <p className="text-slate-500 text-xs mt-1">{formattedDate}</p>

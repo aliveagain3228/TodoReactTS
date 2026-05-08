@@ -3,10 +3,11 @@ import { useState, useEffect } from "react";
 import { GiNotebook } from "react-icons/gi";
 import { MdOutlinePendingActions } from "react-icons/md";
 import { BsCheckCircle } from "react-icons/bs";
+import { useTranslation } from '../../context/LocaleContext'
+import type { Locale } from '../../i18n'
 
 interface HeaderProps {
-    sortOrder: 'newest' | 'oldest'
-    onSortChange: () => void
+
     search: string
     onSearchChange: (value: string) => void
     tasks: Task[]
@@ -14,6 +15,19 @@ interface HeaderProps {
 
 export default function Header({ tasks, search, onSearchChange }: HeaderProps) {
     const [isScrolled, setIsScrolled] = useState(false)
+    const { t, locale, toggleLocale } = useTranslation()
+
+    const FLAGS: Record<Locale, string> = {
+        ru: '🇷🇺',
+        en: '🇬🇧',
+        ua: '🇺🇦',
+    }
+
+    const LABELS: Record<Locale, string> = {
+        ru: 'RU',
+        en: 'EN',
+        ua: 'UA',
+    }
 
 
     useEffect(() => {
@@ -43,8 +57,15 @@ export default function Header({ tasks, search, onSearchChange }: HeaderProps) {
                 <div className="flex items-center gap-3">
                     <GiNotebook className="text-blue-400 text-2xl" />
                     <div>
-                        <h1 className="text-xl font-bold text-white">Kanban Board</h1>
-                        <p className="text-slate-400 text-xs">Task management</p>
+                        <h1 className="text-xl font-bold text-white">{t('board.title')}</h1>
+                        <p className="text-slate-400 text-xs">{t('board.subtitle')}</p>
+
+                        <button
+                            onClick={toggleLocale}
+                            className="flex items-center gap-1 text-slate-400 hover:text-white border border-slate-700 hover:border-slate-500 rounded-lg px-3 py-1 text-xs transition-colors"
+                        >
+                            {FLAGS[locale]} {LABELS[locale]}
+                        </button>
                     </div>
                 </div>
 
@@ -53,7 +74,7 @@ export default function Header({ tasks, search, onSearchChange }: HeaderProps) {
                         type="text"
                         value={search}
                         onChange={(e) => onSearchChange(e.target.value)}
-                        placeholder="Searching for task..."
+                        placeholder={t('task.searchPlaceholder')}
                         className="bg-slate-800 border border-slate-700 rounded-full px-4 py-1.5 text-sm text-white placeholder-slate-500 outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 w-64"
                     />
                     {search && (
@@ -71,7 +92,7 @@ export default function Header({ tasks, search, onSearchChange }: HeaderProps) {
                         <MdOutlinePendingActions className="text-yellow-400 text-lg" />
                         <div className="text-center">
                             <p className="text-white font-bold text-lg leading-none">{totalTasks}</p>
-                            <p className="text-slate-400 text-xs">Total</p>
+                            <p className="text-slate-400 text-xs">{t('stats.total')}</p>
                         </div>
                     </div>
 
@@ -80,7 +101,7 @@ export default function Header({ tasks, search, onSearchChange }: HeaderProps) {
                         <BsCheckCircle className="text-green-400 text-lg" />
                         <div className="text-center">
                             <p className="text-white font-bold text-lg leading-none">{doneTasks}</p>
-                            <p className="text-slate-400 text-xs">Done</p>
+                            <p className="text-slate-400 text-xs">{t('stats.done')}</p>
                         </div>
                     </div>
 
@@ -91,7 +112,7 @@ export default function Header({ tasks, search, onSearchChange }: HeaderProps) {
                             <p className="text-white font-bold text-lg leading-none">
                                 {progress}%
                             </p>
-                            <p className="text-slate-400 text-xs">Progress</p>
+                            <p className="text-slate-400 text-xs">{t('stats.progress')}</p>
                         </div>
                     </div>
                 </div>

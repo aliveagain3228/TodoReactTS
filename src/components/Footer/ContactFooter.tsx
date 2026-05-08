@@ -1,13 +1,15 @@
 import {SiTelegram, SiGithub, SiGmail} from "react-icons/si";
+import { useTranslation } from "../../context/LocaleContext.tsx";
 
 export default function ContactFooter() {
+    const { t } = useTranslation()
     return (
         <footer className="mt-auto border-t border-slate-800 py-12 px-8 text-center">
             <p className="text-slate-500 text-xs uppercase tracking-widest mb-2">
-                Any questions?
+                {t('footer.question')}
             </p>
             <h2 className="text-white text-2xl font-bold mb-6">
-                Contact me!
+                {t('footer.contact')}
             </h2>
 
             <div className="flex justify-center gap-4">

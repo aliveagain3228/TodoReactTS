@@ -4,6 +4,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { useDroppable } from "@dnd-kit/core";
 import TaskCard from "../TaskCard/TaskCard"
 import AddTaskForm from "../AddTaskForm/AddTaskForm"
+import {useTranslation} from "../../context/LocaleContext.tsx";
 
 interface ColumnProps {
     column: ColumnType;
@@ -26,6 +27,7 @@ export default function Column({ column, tasks, globalSort, onAddTask, onDeleteT
     )
 
     const { setNodeRef, isOver } = useDroppable({ id: column.id })
+    const { t } = useTranslation()
 
     return (
         <motion.div
@@ -39,7 +41,7 @@ export default function Column({ column, tasks, globalSort, onAddTask, onDeleteT
             transition={{ duration: 0.4, delay: 0.1 }}
         >
             <div className="flex items-center justify-between mb-2">
-                <h2 className="font-semibold text-lg">{column.title}</h2>
+                <h2 className="font-semibold text-lg">{t(`columns.${column.id}`)}</h2>
 
                 <div className="flex items-center gap-2">
                     <button
@@ -56,9 +58,9 @@ export default function Column({ column, tasks, globalSort, onAddTask, onDeleteT
                         }
                         `}
                     >
-                        {localSort === 'newest' ? '↓ New'
-                            : localSort === 'oldest' ? '↑ Oldest'
-                                : '↕ Auto'
+                        {localSort === 'newest' ? t('task.sortNewest')
+                            : localSort === 'oldest' ? t('task.sortOldest')
+                                : t('task.sortAuto')
                         }
                     </button>
 
@@ -83,7 +85,7 @@ export default function Column({ column, tasks, globalSort, onAddTask, onDeleteT
 
                 {tasks.length === 0 && (
                     <p className="text-slate-500 text-sm text-center py-4">
-                        No tasks
+                        {t('task.noTasks')}
                     </p>
                 )}
             </div>
